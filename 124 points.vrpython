@@ -1,1 +1,79 @@
-{"mode":"Text","hardwareTarget":"brain","textContent":"#region VEXcode Generated Robot Configuration\nimport math\nimport random\nfrom vexcode_viqc import *\n\n# Brain should be defined by default\nbrain=Brain()\n\ndrivetrain = Drivetrain(\"drivetrain\", 0)\nintake_optical = Optical(\"IntakeOptical\", 5)\nintake_motor = Motor(\"IntakeMotor\", 13)\ncatapult_group = Motor(\"CatapultGroup\", 1)\nrear_distance = Distance(\"RearDistance\", 2)\n\n#endregion VEXcode Generated Robot Configuration\n# ------------------------------------------\n# \n# \tProject:      VEXcode Project\n#\tAuthor:       VEX\n#\tCreated:\n#\tDescription:  VEXcode VR Python Project\n# \n# ------------------------------------------\n\n# Add project code in \"main\"\ndef shoot(goal):\n    stopreset()\n    if goal == 'a':\n        dif = 17\n        t = 2\n    elif goal == 'b':\n        dif = 23\n        t = 2\n    elif goal == 'null1':\n        dif = 48\n        t = 2\n    else:\n        dif = 48\n        t = 3\n    drivetrain.drive_for(REVERSE, 48 - dif, INCHES)\n    catapult_group.spin(REVERSE)\n    wait(0.2, SECONDS)\n    resetall(t)\ndef resetall(tt):\n    intake_motor.spin(FORWARD)\n    catapult_group.spin(FORWARD)\n    wait(tt, SECONDS)\ndef stopreset():\n    intake_motor.stop()\n    catapult_group.stop()\ndef main():\n    drivetrain.drive_for(FORWARD, 16, INCHES)\n    drivetrain.turn_to_heading(90, DEGREES)\n    shoot('a')\n    drivetrain.turn_to_heading(0, DEGREES)\n    drivetrain.drive_for(FORWARD, 24, INCHES)\n    drivetrain.turn_to_heading(90, DEGREES)\n    shoot('null1')\n    drivetrain.drive_for(FORWARD, 16, INCHES)\n    drivetrain.turn_to_heading(45, DEGREES)\n    drivetrain.drive_for(FORWARD, 8, INCHES)\n    drivetrain.drive_for(REVERSE, 8, INCHES)\n    drivetrain.turn_to_heading(90, DEGREES)\n    drivetrain.drive_for(REVERSE, 3, INCHES)\n    shoot('null1')\n    drivetrain.drive_for(FORWARD, 6, INCHES)\n    drivetrain.turn_to_heading(180, DEGREES)\n    drivetrain.drive_for(FORWARD, 24, INCHES)\n    while True:\n        drivetrain.turn_to_heading(135, DEGREES)\n        drivetrain.drive_for(FORWARD, 8, INCHES)\n        drivetrain.drive_for(REVERSE, 8, INCHES)\n        drivetrain.turn_to_heading(90, DEGREES)\n        drivetrain.drive_for(REVERSE, 3, INCHES)\n        shoot('null2')\n        drivetrain.drive_for(FORWARD, 3, INCHES)\n\n# VR threads — Do not delete\nvr_thread(main)\n","textLanguage":"python","robotConfig":[],"slot":0,"platform":"PG","sdkVersion":"20240802.15.00.00","appVersion":"4.0.7","minVersion":"4.0.0","fileFormat":"2.0.0","targetBrainGen":"First","v5SoundsEnabled":false,"playground":"VIQC25","robotModel":"viqc25","playgroundConfig":{"playground_id":"VIQC_2024-2025","activity_id":"0","robot_starting_location":"B","robot_starting_orientation":0,"playground_specific_data":{"Preload":{"field_preload_starting_location":"1"}}}}
+#region VEXcode Generated Robot Configuration
+import math
+import random
+from vexcode_viqc import *
+
+# Brain should be defined by default
+brain=Brain()
+
+drivetrain = Drivetrain("drivetrain", 0)
+intake_optical = Optical("IntakeOptical", 5)
+intake_motor = Motor("IntakeMotor", 13)
+catapult_group = Motor("CatapultGroup", 1)
+rear_distance = Distance("RearDistance", 2)
+
+#endregion VEXcode Generated Robot Configuration
+# ------------------------------------------
+# 
+# 	Project:      VEXcode Project
+#	Author:       VEX
+#	Created:
+#	Description:  VEXcode VR Python Project
+# 
+# ------------------------------------------
+
+# Add project code in "main"
+def shoot(goal):
+    stopreset()
+    if goal == 'a':
+        dif = 17
+        t = 2
+    elif goal == 'b':
+        dif = 23
+        t = 2
+    elif goal == 'null1':
+        dif = 48
+        t = 2
+    else:
+        dif = 48
+        t = 3
+    drivetrain.drive_for(REVERSE, 48 - dif, INCHES)
+    catapult_group.spin(REVERSE)
+    wait(0.2, SECONDS)
+    resetall(t)
+def resetall(tt):
+    intake_motor.spin(FORWARD)
+    catapult_group.spin(FORWARD)
+    wait(tt, SECONDS)
+def stopreset():
+    intake_motor.stop()
+    catapult_group.stop()
+def main():
+    drivetrain.drive_for(FORWARD, 16, INCHES)
+    drivetrain.turn_to_heading(90, DEGREES)
+    shoot('a')
+    drivetrain.turn_to_heading(0, DEGREES)
+    drivetrain.drive_for(FORWARD, 24, INCHES)
+    drivetrain.turn_to_heading(90, DEGREES)
+    shoot('null1')
+    drivetrain.drive_for(FORWARD, 16, INCHES)
+    drivetrain.turn_to_heading(45, DEGREES)
+    drivetrain.drive_for(FORWARD, 8, INCHES)
+    drivetrain.drive_for(REVERSE, 8, INCHES)
+    drivetrain.turn_to_heading(90, DEGREES)
+    drivetrain.drive_for(REVERSE, 3, INCHES)
+    shoot('null1')
+    drivetrain.drive_for(FORWARD, 6, INCHES)
+    drivetrain.turn_to_heading(180, DEGREES)
+    drivetrain.drive_for(FORWARD, 24, INCHES)
+    while True:
+        drivetrain.turn_to_heading(135, DEGREES)
+        drivetrain.drive_for(FORWARD, 8, INCHES)
+        drivetrain.drive_for(REVERSE, 8, INCHES)
+        drivetrain.turn_to_heading(90, DEGREES)
+        drivetrain.drive_for(REVERSE, 3, INCHES)
+        shoot('null2')
+        drivetrain.drive_for(FORWARD, 3, INCHES)
+
+# VR threads — Do not delete
+vr_thread(main)
